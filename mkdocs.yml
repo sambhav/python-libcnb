@@ -1,0 +1,34 @@
+---
+# Project Information
+site_name: Python libcnb
+site_author: Sambhav Kothari
+site_description:  Cloud Native Buildpack API bindings for Python
+
+# Repository information
+repo_name: samj1912/python-libcnb
+repo_url: https://github.com/samj1912/python-libcnb
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2021 Sambhav Kothari
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  language: en
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/samj1912
+      name: samj1912 on GitHub
+
+# Page tree
+nav:
+  - Home: index.md
