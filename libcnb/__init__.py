@@ -11,3 +11,8 @@ try:
     __version__ = version(__package__)  # type: ignore
 except PackageNotFoundError:  # pragma: no cover
     __version__ = "0.0.0"
+
+
+from libcnb._layers import Environment, ExecD, Layer, Layers, Profile
+
+__all__ = ["Environment", "ExecD", "Layer", "Layers", "Profile"]
