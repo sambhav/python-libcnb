@@ -3,31 +3,39 @@ name: Code Quality Checks
 
 on:
   push:
-    branches: [main, development]
+    branches: [main]
   pull_request:
-    branches: [main, development]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v1
+      - uses: actions/setup-python@v2
         with:
-          python-version: 3.7
-      - name: Install poetry
-        run: pip install poetry
+          python-version: 3.9
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.1.2
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
-        run: poetry update
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+      - name: Install library
+        run: poetry install --no-interaction
+      - name: Check for linting issues
+        run: make lint
       - name: Unit & Coverage test with pytest
-        run: poetry run pytest
-      - name: Check style with flake8
-        run: poetry run flake8 libcnb/ tests/
-      - name: Check format with black
-        run: poetry run black --check libcnb/ tests/
-      - name: Check type hinting with mypy
-        run: poetry run mypy --strict --config-file=mypy.ini libcnb/
-      
+        run: make test
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.xml

@@ -3,7 +3,7 @@
 # -------------------------------------------------------
 
 [flake8]
-max-line-length = 100
+ignore = E501
 exclude =
     .git,
     docs,
@@ -18,3 +18,4 @@ max-complexity = 10
 import-order-style = google
 application-import-names = libcnb
 format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
+docstring-convention=google
