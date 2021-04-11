@@ -108,12 +108,12 @@ class ExecD:
     """Exec represents the exec.d layer location.
 
     Attributes:
-        path: The path to the exec.d directory.
+        path (Path): The path to the exec.d directory.
     """
 
-    def __init__(self, path: Path):
+    def __init__(self, path: Union[str, Path]):
         """Initializer for exec.d."""
-        self.path = path
+        self.path = Path(path)
 
     def file_path(self, name: str) -> Path:
         """Returns the fully qualified file path for a given name."""
@@ -132,8 +132,8 @@ class Layer(BaseModel):
 
     Attributes:
         path: The absolute location of the layer on disk.
-        name: The descriptive name of the layer.
-        metadata_file: The aboluste location of the layer content metadata file.
+        name (str): The descriptive name of the layer.
+        metadata_file (Path): The aboluste location of the layer content metadata file.
         build: Indicates whether the layer is available to subsequent buildpacks
                 during their build phase according to the specification:
                 https://github.com/buildpacks/spec/blob/main/buildpack.md#build-layers.
@@ -151,7 +151,7 @@ class Layer(BaseModel):
         build_env: The set of environment variables attached to the layer and
                 made available during the build phase according to the specification:
                 https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.
-        launch_end: The set of environment variables attached to the layer and
+        launch_env: The set of environment variables attached to the layer and
                 made available during the launch phase according to the specification:
                 https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.
         process_launch_envs: A dict of environment variables attached to the layer and
@@ -167,7 +167,7 @@ class Layer(BaseModel):
         profile: The collection of values to be written into profile.d.
         process_profiles:  A dict of process types to the collection of values to be written
             into profile.d for specific process types.
-        exec_d: The exec.d executables set in the layer.
+        exec_d (ExecD): The exec.d executables set in the layer.
     """
 
     path: Path

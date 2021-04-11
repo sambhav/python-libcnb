@@ -9,7 +9,7 @@ class License(BaseModel):
     """License contains information about a Software License governing the use or redistribution of a buildpack.
 
     Attributes:
-        types_: The identifier for the license.
+        type_: The identifier for the license.
             It may use the SPDX 2.1 license expression, but is not limited
             to identifiers in the SPDX Licenses List.
         uri: A string that may be specified in lieu of or in addition to type to point to the license
@@ -28,7 +28,7 @@ class BuildpackInfo(BaseModel):
         version: The version of the buildpack.
         name: The name of the buildpack.
         homepage: The homepage of the buildpack.
-        clear-env: Clears user-defined environment variables when true
+        clear_env: Clears user-defined environment variables when true
             on executions of bin/detect and bin/build.
         description: The string describing the buildpack.
         keywords: A list of words that are associated with the buildpack.
