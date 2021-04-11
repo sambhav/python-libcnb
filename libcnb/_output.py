@@ -112,3 +112,26 @@ class BuildMetadata(BaseModel):
     def __bool__(self) -> bool:
         """Returns true if there is any content to be written to the output toml file."""
         return bool(self.bom or self.unmet)
+
+
+class Store(BaseModel):
+    """Store represents the contents of store.toml.
+
+    Attributes:
+        metadata: Represents the persistent metadata.
+    """
+
+    metadata: Dict[str, Any] = {}
+
+    def to_path(self, path: Union[str, Path]) -> None:
+        """Export Store to the TOML file at the given path."""
+        Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
+
+    @classmethod
+    def from_path(cls, path: Union[str, Path]) -> "Store":
+        """Creates a Store from the TOML file at the given path."""
+        return cls.parse_obj(toml.loads(Path(path).read_text()))
+
+    def __bool__(self) -> bool:
+        """Returns true if there is any content to be written to the output toml file."""
+        return bool(self.metadata)

@@ -1,5 +1,15 @@
 # API Reference
 
+## Detection API
+
+::: libcnb.detect
+
+::: libcnb.DetectContext
+
+::: libcnb.DetectResult
+
+::: libcnb.Detector
+
 ## Outputs
 
 ::: libcnb._output
@@ -15,3 +25,7 @@
 ## Build Plans
 
 ::: libcnb._plan
+
+## Platform
+
+::: libcnb._platform
