@@ -16,6 +16,10 @@ fix-lint:
 	poetry run isort libcnb/ tests/
 	poetry run autoflake -r -i --remove-all-unused-imports --ignore-init-module-imports libcnb
 
+.PHONY: docs-serve
+docs-serve:
+	poetry run mkdocs serve
+
 .PHONY: prepare-for-pr
 prepare-for-pr: fix-lint lint test
 	@echo "========"

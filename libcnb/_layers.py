@@ -9,7 +9,7 @@ from pydantic import BaseModel
 LAYER_TYPES = {"launch", "cache", "build"}
 
 
-class Profile(UserDict):
+class Profile(UserDict):  # type: ignore
     """Profile is the collection of values to be written into profile.d."""
 
     def add(self, name: str, value: str) -> None:
@@ -38,7 +38,7 @@ class Profile(UserDict):
             (path / key).write_text(value)
 
 
-class Environment(UserDict):
+class Environment(UserDict):  # type: ignore
     """Environment provides a key-value store for declaring environment variables."""
 
     def append(self, name: str, value: str, delim: str) -> None:
