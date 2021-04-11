@@ -1,5 +1,7 @@
 # API Reference
 
+::: libcnb
+
 ## Detection API
 
 ::: libcnb.detect
@@ -9,6 +11,16 @@
 ::: libcnb.DetectResult
 
 ::: libcnb.Detector
+
+## Build API
+
+::: libcnb.build
+
+::: libcnb.BuildContext
+
+::: libcnb.BuildResult
+
+::: libcnb.Builder
 
 ## Outputs
 

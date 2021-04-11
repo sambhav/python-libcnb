@@ -1,4 +1,7 @@
-"""Python libcnb namespace."""
+"""libcnb is a Python language binding of the Cloud Native Buildpacks API.
+
+It is a non-opinionated implementation adding language constructs and convenience methods for working with the API.
+"""
 
 from importlib_metadata import PackageNotFoundError, version
 
@@ -13,6 +16,7 @@ except PackageNotFoundError:  # pragma: no cover
     __version__ = "0.0.0"
 
 
+from libcnb._build import BuildContext, Builder, BuildResult, build
 from libcnb._buildpack import (
     Buildpack,
     BuildpackGroupEntry,
@@ -44,6 +48,10 @@ from libcnb._platform import Platform
 
 __all__ = [
     "detect",
+    "build",
+    "BuildContext",
+    "Builder",
+    "BuildResult",
     "DetectContext",
     "DetectResult",
     "Detector",

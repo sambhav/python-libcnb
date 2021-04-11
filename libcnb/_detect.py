@@ -2,11 +2,12 @@ import argparse
 import os
 import sys
 from pathlib import Path
-from typing import Callable, List, Optional, Sequence, Union
+from typing import Any, Callable, List, Optional, Sequence, Union
 
 import toml
 from packaging.version import parse
 from pydantic import BaseModel, validator
+from pydantic.fields import ModelField
 
 from libcnb._buildpack import Buildpack
 from libcnb._plan import BuildPlan
@@ -37,19 +38,14 @@ class DetectContext(BaseModel):
     platform: Platform
     stack_id: str
 
-    @validator("buildpack")
-    def _validate_buildpack(cls, v: Union[Buildpack, Path, str]) -> Buildpack:
-        if isinstance(v, Buildpack):
-            return v
-        path = Path(v)
-        return Buildpack.from_path(path)
-
-    @validator("platform")
-    def _validate_platform(cls, v: Union[Platform, Path, str]) -> Platform:
-        if isinstance(v, Platform):
-            return v
-        path = Path(v)
-        return Platform.from_path(path)
+    @validator("buildpack", "platform", pre=True)
+    def _validate_buildpack(cls, value: Union[Any, Path, str], field: ModelField) -> Any:
+        if isinstance(value, field.type_):
+            return value
+        if isinstance(value, (str, Path)):
+            path = Path(value)
+            return field.type_.from_path(path)
+        raise ValueError(f"Invalid type {type(value)} for {field.name}")
 
 
 class DetectResult(BaseModel):

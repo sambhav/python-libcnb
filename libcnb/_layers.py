@@ -34,6 +34,7 @@ class Profile(UserDict):  # type: ignore
     def to_path(self, path: Union[Path, str]) -> None:
         """Exports the current collection of profile.d scripts to disk."""
         path = Path(path)
+        path.mkdir(mode=0o755, parents=True, exist_ok=True)
         for key, value in self.items():
             (path / key).write_text(value)
 
@@ -100,6 +101,7 @@ class Environment(UserDict):  # type: ignore
     def to_path(self, path: Union[Path, str]) -> None:
         """Exports the environment to the given path on disk."""
         path = Path(path)
+        path.mkdir(mode=0o755, parents=True, exist_ok=True)
         for key, value in self.items():
             (path / key).write_text(value)
 
@@ -197,7 +199,7 @@ class Layer(BaseModel):
     def exec_d(self) -> ExecD:  # noqa: D102
         return ExecD(self.path / "exec.d")
 
-    def load(self) -> "Layer":
+    def load(self, load_all: bool = False) -> "Layer":
         """Loads the layer metadata from disk if it exists."""
         try:
             metadata = toml.loads(self.metadata_file.read_text())
@@ -207,6 +209,8 @@ class Layer(BaseModel):
         for layer_type in LAYER_TYPES:
             setattr(self, layer_type, layer_types.get(layer_type, False))
         self.metadata = metadata.get("metadata", {})
+        if not load_all:
+            return self
         self.shared_env = Environment.from_path(self.path / "env")
         self.build_env = Environment.from_path(self.path / "env.build")
         launch_env_path = self.path / "env.launch"
@@ -224,6 +228,7 @@ class Layer(BaseModel):
 
     def dump(self) -> None:
         """Exports the layer metadata to disk."""
+        self.path.mkdir(parents=True, exist_ok=True)
         metadata = {
             "types": {key: getattr(self, key) for key in LAYER_TYPES},
             "metadata": self.metadata,
@@ -276,14 +281,12 @@ class Layers(BaseModel):
 
     path: Path
 
-    def get(self, name: str, load: bool = True) -> Layer:
-        """Create or load a layer with the given name.
+    def get(self, name: str, load_all: bool = False) -> Layer:
+        """Create or load a layer with the given name along with its metadata.
 
-        This method will either create a new layer with the given name and layer types.
-        If load is True and a layer already exists on disk, then the layer metadata will
-        be retrieved from disk and returned instead.
+        Arguments:
+            name: Name of the layer to create or load.
+            load_all: If set to True, also loads the environment and profile.d values
+                associated with the layer.
         """
-        layer = Layer(path=(self.path / name).absolute())
-        if load:
-            layer.load()
-        return layer
+        return Layer(path=(self.path / name).absolute()).load(load_all=load_all)

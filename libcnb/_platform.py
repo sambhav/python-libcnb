@@ -28,5 +28,5 @@ class Platform(BaseModel):
         env: Dict[str, str] = {}
         for env_path in (path / "env").glob("*"):
             if env_path.is_file():
-                env[path.name] = path.read_text()
+                env[env_path.name] = env_path.read_text()
         return cls(path=path, env=MappingProxyType(env))
