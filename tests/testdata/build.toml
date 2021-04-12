@@ -1,0 +1,8 @@
+[[bom]]
+name = "<dependency name>"
+
+[bom.metadata]
+key = "<value>"
+
+[[unmet]]
+name = "<dependency name>"

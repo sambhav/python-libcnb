@@ -43,7 +43,7 @@ class Slice(BaseModel):
         paths: The contents of the slice.
     """
 
-    paths: List[Path] = []
+    paths: List[str] = []
 
 
 class BOMEntry(BaseModel):
@@ -90,6 +90,11 @@ class LaunchMetadata(BaseModel):
         """Export LaunchMetadata to the TOML file at the given path."""
         Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
 
+    @classmethod
+    def from_path(cls, path: Union[str, Path]) -> "LaunchMetadata":
+        """Creates a LaunchMetadata from the TOML file at the given path."""
+        return cls.parse_obj(toml.loads(Path(path).read_text()))
+
     def __bool__(self) -> bool:
         """Returns true if there is any content to be written to the output toml file."""
         return bool(self.labels or self.processes or self.slices or self.bom)
@@ -109,6 +114,11 @@ class BuildMetadata(BaseModel):
     def to_path(self, path: Union[str, Path]) -> None:
         """Export LaunchMetadata to the TOML file at the given path."""
         Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
+
+    @classmethod
+    def from_path(cls, path: Union[str, Path]) -> "BuildMetadata":
+        """Creates a BuildMetadata from the TOML file at the given path."""
+        return cls.parse_obj(toml.loads(Path(path).read_text()))
 
     def __bool__(self) -> bool:
         """Returns true if there is any content to be written to the output toml file."""

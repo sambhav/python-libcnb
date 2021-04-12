@@ -36,7 +36,10 @@ nav:
 
 plugins:
   - search
+  - autorefs
   - mkdocstrings:
+      watch:
+        - libcnb
       handlers:
         python:
           rendering:

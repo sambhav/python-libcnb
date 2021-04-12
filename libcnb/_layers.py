@@ -37,7 +37,7 @@ class Profile(UserDict):  # type: ignore
         path = Path(path)
         path.mkdir(mode=0o755, parents=True, exist_ok=True)
         for key, value in self.items():
-            (path / key).write_text(value)
+            (path / key).write_text(str(value))
 
 
 class Environment(UserDict):  # type: ignore
@@ -90,11 +90,11 @@ class Environment(UserDict):  # type: ignore
         env = cls()
         for path in env_path.glob("*"):
             if path.is_file() and path.suffix in {
-                "append",
-                "prepend",
-                "default",
-                "delim",
-                "override",
+                ".append",
+                ".prepend",
+                ".default",
+                ".delim",
+                ".override",
             }:
                 env[path.name] = path.read_text()
         return env
@@ -104,7 +104,7 @@ class Environment(UserDict):  # type: ignore
         path = Path(path)
         path.mkdir(mode=0o755, parents=True, exist_ok=True)
         for key, value in self.items():
-            (path / key).write_text(value)
+            (path / key).write_text(str(value))
 
 
 class ExecD:
@@ -249,7 +249,7 @@ class Layer(BaseModel):
         self.metadata_file.unlink()
         shutil.rmtree(self.path)
         self.path.mkdir(parents=True, exist_ok=True)
-        return self.load()
+        return self.load(load_all=True)
 
     def compare_metadata(self, expected_metadata: Dict[str, Any], exact: bool = False) -> bool:
         """Utility method to compare the layer metadata on disk with the expected metadata.
@@ -260,15 +260,14 @@ class Layer(BaseModel):
                 If set to false, only the keys in expected metadata and their values are checked
                 against the actual metadata. Any extra keys in actual metadata are ignored.
         """
-        layer = self.load()
         if exact:
-            if layer.metadata != expected_metadata:
+            if self.metadata != expected_metadata:
                 return False
             return True
         for key, value in expected_metadata.items():
-            if key not in layer.metadata:
+            if key not in self.metadata:
                 return False
-            if layer.metadata[key] != value:
+            if self.metadata[key] != value:
                 return False
         return True
 

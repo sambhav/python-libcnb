@@ -1,0 +1,14 @@
+[[entries]]
+name = "test-name"
+version = "test-version"
+
+[entries.metadata]
+test-key = "test-value"
+
+[[entries]]
+name = "test-name"
+version = "test-version"
+
+[entries.metadata]
+test-key = "test-value2"
+test-key2 = "test-value2"

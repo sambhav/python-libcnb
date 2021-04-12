@@ -1,0 +1,19 @@
+[[bom]]
+name = "<dependency name>"
+
+[bom.metadata]
+key = "<value>"
+
+[[labels]]
+key = "<label key>"
+value = "<label value>"
+
+[[processes]]
+type = "<process type>"
+command = "<command>"
+args = ["<arguments>"]
+direct = false
+default = false
+
+[[slices]]
+paths = ["<app sub-path glob>"]

@@ -64,7 +64,7 @@ class DetectResult(BaseModel):
 Detector = Callable[[DetectContext], DetectResult]
 
 
-def _export_plans(plans: List[BuildPlan], path: Path) -> None:
+def _export_build_plans(plans: List[BuildPlan], path: Path) -> None:
     path.write_text(
         toml.dumps(
             {
@@ -110,5 +110,5 @@ def detect(detector: Detector) -> None:
     if not result.passed:
         sys.exit(100)
     if result.plans:
-        _export_plans(result.plans, args.plan)
+        _export_build_plans(result.plans, args.plan)
     return

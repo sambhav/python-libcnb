@@ -4,7 +4,7 @@ test:
 
 .PHONY: lint
 lint:
-	poetry run flake8 libcnb/ tests/
+	poetry run flake8 libcnb/
 	poetry run black --check libcnb/ tests/
 	poetry run isort --check libcnb/ tests/
 	poetry run autoflake -c -r -i --remove-all-unused-imports --ignore-init-module-imports libcnb
