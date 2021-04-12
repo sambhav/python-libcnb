@@ -1,3 +1,4 @@
+"""Classes and functions related to the buildpack specific information and metadata."""
 from pathlib import Path
 from typing import Any, Dict, List, Union
 

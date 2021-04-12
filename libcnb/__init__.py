@@ -45,17 +45,13 @@ from libcnb._plan import (
     BuildPlanRequire,
 )
 from libcnb._platform import Platform
+from libcnb._run import run
 
 __all__ = [
-    "detect",
+    "BOMEntry",
     "build",
     "BuildContext",
     "Builder",
-    "BuildResult",
-    "DetectContext",
-    "DetectResult",
-    "Detector",
-    "BOMEntry",
     "BuildMetadata",
     "Buildpack",
     "BuildpackGroupEntry",
@@ -67,6 +63,11 @@ __all__ = [
     "BuildPlan",
     "BuildPlanProvide",
     "BuildPlanRequire",
+    "BuildResult",
+    "detect",
+    "DetectContext",
+    "Detector",
+    "DetectResult",
     "Environment",
     "ExecD",
     "Label",
@@ -77,6 +78,7 @@ __all__ = [
     "Platform",
     "Process",
     "Profile",
+    "run",
     "Slice",
     "Store",
     "UnmetPlanEntry",

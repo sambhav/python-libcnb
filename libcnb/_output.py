@@ -1,3 +1,4 @@
+"""Classes and functions binding the various buildpack outputs during the build phase to a Python API."""
 from pathlib import Path
 from typing import Any, Dict, List, Union
 

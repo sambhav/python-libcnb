@@ -1,3 +1,4 @@
+"""Classes and functions related to the detect phase."""
 import argparse
 import os
 import sys
@@ -75,7 +76,7 @@ def _export_plans(plans: List[BuildPlan], path: Path) -> None:
     )
 
 
-def detect(detector: Detector, _input_args: Optional[Sequence[str]] = None) -> None:
+def detect(detector: Detector) -> None:
     """An implementation of the detect phase according to the Cloud Native Buildpacks specification.
 
     Args:
@@ -84,7 +85,7 @@ def detect(detector: Detector, _input_args: Optional[Sequence[str]] = None) -> N
             that performs the specific detect phase operations for a buildpack. It should be
             a callable that takes in a DetectContext and returns a DetectResult.
     """
-    args = _get_detect_args(_input_args or None)
+    args = _get_detect_args()
     try:
         stack_id = os.environ["CNB_STACK_ID"]
     except KeyError:

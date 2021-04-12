@@ -2,25 +2,17 @@
 
 ::: libcnb
 
+## Main Entrypoint
+
+::: libcnb._run
+
 ## Detection API
 
-::: libcnb.detect
-
-::: libcnb.DetectContext
-
-::: libcnb.DetectResult
-
-::: libcnb.Detector
+::: libcnb._detect
 
 ## Build API
 
-::: libcnb.build
-
-::: libcnb.BuildContext
-
-::: libcnb.BuildResult
-
-::: libcnb.Builder
+::: libcnb._build
 
 ## Outputs
 

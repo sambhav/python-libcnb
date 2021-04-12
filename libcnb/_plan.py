@@ -1,3 +1,4 @@
+"""Classes and functions binding the various plan I/O during the detect/build phase to a Python API."""
 from pathlib import Path
 from typing import Any, Dict, List, Union
 

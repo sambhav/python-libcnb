@@ -1,3 +1,4 @@
+"""Classes and functions related to layer metadata manipulation."""
 import shutil
 from collections import UserDict
 from pathlib import Path

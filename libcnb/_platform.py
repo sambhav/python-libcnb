@@ -1,3 +1,4 @@
+"""Classes and functions binding the Platform metadata."""
 from pathlib import Path
 from types import MappingProxyType
 from typing import Dict, Mapping, Union

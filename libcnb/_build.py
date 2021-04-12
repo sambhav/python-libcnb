@@ -1,3 +1,4 @@
+"""Classes and functions related to the build phase."""
 import argparse
 import os
 from pathlib import Path
@@ -99,7 +100,7 @@ class BuildResult(BaseModel):
 Builder = Callable[[BuildContext], BuildResult]
 
 
-def build(builder: Builder, _input_args: Optional[Sequence[str]] = None) -> None:
+def build(builder: Builder) -> None:
     """An implementation of the build phase according to the Cloud Native Buildpacks specification.
 
     Args:
@@ -108,7 +109,7 @@ def build(builder: Builder, _input_args: Optional[Sequence[str]] = None) -> None
             that performs the specific detect phase operations for a buildpack. It should be
             a callable that takes in a BuildContext and returns a BuildResult.
     """
-    args = _get_build_args(_input_args or None)
+    args = _get_build_args()
     try:
         stack_id = os.environ["CNB_STACK_ID"]
     except KeyError:
