@@ -5,11 +5,6 @@ import pytest
 import libcnb
 
 
-@pytest.fixture
-def mock_buildpack_path():
-    yield Path("tests") / "testdata" / "buildpack"
-
-
 def test_buildpack_serialization(mock_buildpack_path):
     # WHEN
     buildpack = libcnb.Buildpack.from_path(mock_buildpack_path)

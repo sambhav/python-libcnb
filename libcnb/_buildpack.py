@@ -20,6 +20,9 @@ class License(BaseModel):
     type_: str = Field(alias="type", default="")
     uri: str = ""
 
+    class Config:  # noqa: D101, D106
+        allow_population_by_field_name = True
+
 
 class BuildpackInfo(BaseModel):
     """BuildpackInfo is information about the buildpack.

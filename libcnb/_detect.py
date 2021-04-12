@@ -7,11 +7,11 @@ from typing import Any, Callable, List, Optional, Sequence, Union
 
 import toml
 from packaging.version import parse
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, Field, validator
 from pydantic.fields import ModelField
 
 from libcnb._buildpack import Buildpack
-from libcnb._plan import BuildPlan
+from libcnb._plan import BuildPlan, BuildPlanProvide, BuildPlanRequire
 from libcnb._platform import Platform
 
 MIN_BUILDPACK_API = parse("0.6")
@@ -64,14 +64,21 @@ class DetectResult(BaseModel):
 Detector = Callable[[DetectContext], DetectResult]
 
 
+class _BuildPlans(BaseModel):
+    provides: List[BuildPlanProvide]
+    requires: List[BuildPlanRequire]
+    or_: List[BuildPlan] = Field(alias="or", default=[])
+
+    class Config:  # noqa: D101, D106
+        allow_population_by_field_name = True
+
+
 def _export_build_plans(plans: List[BuildPlan], path: Path) -> None:
     path.write_text(
         toml.dumps(
-            {
-                "provides": plans[0].provides,
-                "requires": plans[0].requires,
-                "or": plans[1:],
-            }
+            _BuildPlans(provides=plans[0].provides, requires=plans[0].requires, or_=plans[1:]).dict(
+                by_alias=True
+            )
         )
     )
 

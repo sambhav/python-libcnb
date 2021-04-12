@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 import libcnb
@@ -24,3 +26,18 @@ def mock_layer(mock_layers):
     layer.process_profiles["process"] = libcnb.Profile({"test": "test"})
     layer.dump()
     yield layer, layer.name, mock_layers
+
+
+@pytest.fixture
+def mock_platform_path():
+    yield Path("tests") / "testdata" / "platform"
+
+
+@pytest.fixture
+def mock_buildpack_path():
+    yield Path("tests") / "testdata" / "buildpack"
+
+
+@pytest.fixture
+def mock_buildpack_plan(tmp_path):
+    yield tmp_path / "plan.toml"

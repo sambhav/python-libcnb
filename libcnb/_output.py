@@ -23,6 +23,9 @@ class Process(BaseModel):
     direct: bool = False
     default: bool = False
 
+    class Config:  # noqa: D101, D106
+        allow_population_by_field_name = True
+
 
 class Label(BaseModel):
     """Label represents an image label.

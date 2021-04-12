@@ -5,11 +5,6 @@ import pytest
 import libcnb
 
 
-@pytest.fixture
-def mock_platform_path():
-    yield Path("tests") / "testdata" / "platform"
-
-
 def test_platform_serialization(mock_platform_path):
     # WHEN
     platform = libcnb.Platform.from_path(mock_platform_path)
