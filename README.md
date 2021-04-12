@@ -1,4 +1,4 @@
-# Python libcnb
+# libcnb
 
 
 [![PyPI version](https://badge.fury.io/py/libcnb.svg)](https://badge.fury.io/py/libcnb)
@@ -16,10 +16,9 @@
 - Free software: Apache-2.0
 - Documentation: https://samj1912.github.io/python-libcnb.
 
+## Usage
 
-## Features
-
-* TODO
+Check out the documentation - https://samj1912.github.io/python-libcnb
 
 ## Credits
 

@@ -34,6 +34,11 @@ nav:
   - Home: index.md
   - API Reference: api.md
 
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.extra
+  - pymdownx.superfences
+
 plugins:
   - search
   - autorefs
