@@ -44,7 +44,7 @@ class DetectContext(BaseModel):
         if isinstance(value, field.type_):
             return value
         if isinstance(value, (str, Path)):
-            path = Path(value)
+            path = Path(value).absolute()
             return field.type_.from_path(path)
         raise ValueError(f"Invalid type {type(value)} for {field.name}")
 
@@ -111,7 +111,7 @@ def detect(detector: Detector) -> None:
     )
     if parse(context.buildpack.api) < MIN_BUILDPACK_API:
         raise Exception(
-            "This version of libcnb is only compatible with buildpack API 0.6 or greater"
+            f"This version of libcnb is only compatible with buildpack API {MIN_BUILDPACK_API} or greater"
         )
     result = detector(context)
     if not result.passed:

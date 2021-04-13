@@ -1,0 +1,24 @@
+api = "0.5"
+[buildpack]
+id = "test-id"
+name = "test-name"
+version = "1.1.1"
+clear-env = true
+description = "A test buildpack"
+keywords = ["test", "buildpack"]
+[[buildpack.licenses]]
+type = "Apache-2.0"
+uri = "https://spdx.org/licenses/Apache-2.0.html"
+[[buildpack.licenses]]
+type = "Apache-1.1"
+uri = "https://spdx.org/licenses/Apache-1.1.html"
+[[order]]
+[[order.group]]
+id = "test-id"
+version = "2.2.2"
+optional = true
+[[stacks]]
+id = "test-id"
+mixins = ["test-name"]
+[metadata]
+test-key = "test-value"
