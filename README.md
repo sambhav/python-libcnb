@@ -8,7 +8,7 @@
 [![Docs publish](https://github.com/samj1912/python-libcnb/actions/workflows/docs_publish.yml/badge.svg)](https://github.com/samj1912/python-libcnb/actions/workflows/docs_publish.yml)
 [![codecov](https://codecov.io/gh/samj1912/python-libcnb/branch/main/graph/badge.svg?token=Vb5svxOpMj)](https://codecov.io/gh/samj1912/python-libcnb)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
+[![Downloads](https://static.pepy.tech/personalized-badge/libcnb?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/libcnb)
 
  Cloud Native Buildpack API bindings for Python
 
