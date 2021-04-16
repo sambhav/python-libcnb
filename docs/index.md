@@ -2,6 +2,13 @@
 
 Cloud Native Buildpack API bindings for Python
 
+## Usage
+
+You can install `libcnb` from PyPi via - 
+
+```bash
+pip install libcnb
+```
 
 ## Buildpack Interface
 
