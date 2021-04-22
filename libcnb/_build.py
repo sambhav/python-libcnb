@@ -89,12 +89,9 @@ class BuildResult(BaseModel):
         for toml_file in path.glob("*.toml"):
             if toml_file.stem not in preserved_tomls:
                 toml_file.unlink()
-        if self.store:
-            self.store.to_path(path / "store.toml")
-        if self.launch_metadata:
-            self.launch_metadata.to_path(path / "launch.toml")
-        if self.build_metadata:
-            self.build_metadata.to_path(path / "build.toml")
+        self.store.to_path(path / "store.toml")
+        self.launch_metadata.to_path(path / "launch.toml")
+        self.build_metadata.to_path(path / "build.toml")
 
 
 Builder = Callable[[BuildContext], BuildResult]
@@ -124,7 +121,7 @@ def build(builder: Builder) -> None:
         application_dir=Path(".").absolute(),
         buildpack=buildpack_dir,  # type: ignore
         platform=args.platform,
-        layers=args.layers,
+        layers=Layers(path=args.layers),
         plan=args.plan,
         store=(args.layers / "store.toml"),
         stack_id=stack_id,

@@ -16,11 +16,15 @@ def detect_fail(context):
 
 
 @pytest.fixture
-def mock_detect_context(mock_platform_path, mock_buildpack_plan, monkeypatch, mock_buildpack_path):
-    monkeypatch.setattr("sys.argv", ["detect", str(mock_platform_path), str(mock_buildpack_plan)])
+def mock_detect_context(
+    mock_platform_path, mock_buildpack_plan_path, monkeypatch, mock_buildpack_path
+):
+    monkeypatch.setattr(
+        "sys.argv", ["detect", str(mock_platform_path), str(mock_buildpack_plan_path)]
+    )
     monkeypatch.setenv("CNB_BUILDPACK_DIR", str(mock_buildpack_path))
     monkeypatch.setenv("CNB_STACK_ID", "test")
-    yield mock_platform_path, mock_buildpack_plan, mock_buildpack_path, "test"
+    yield mock_platform_path, mock_buildpack_plan_path, mock_buildpack_path, "test"
 
 
 @pytest.mark.parametrize(

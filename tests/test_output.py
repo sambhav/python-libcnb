@@ -32,6 +32,17 @@ def test_store_serialization(mock_store_path, tmp_path):
     )
 
 
+@pytest.mark.parametrize("cls", [libcnb.Store, libcnb.LaunchMetadata, libcnb.BuildMetadata])
+def test_serialization_empty(cls, tmp_path):
+    # GIVEN
+    store = cls()
+    output_path = tmp_path / "output.toml"
+    # WHEN
+    store.to_path(output_path)
+    # THEN
+    assert not output_path.exists()
+
+
 def test_launch_metadata_serialization(mock_launch_path, tmp_path):
     # GIVEN
     launch_metadata = libcnb.LaunchMetadata.from_path(mock_launch_path)

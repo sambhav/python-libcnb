@@ -44,5 +44,10 @@ def mock_old_buildpack_path():
 
 
 @pytest.fixture
-def mock_buildpack_plan(tmp_path):
+def mock_buildpack_plan_path(tmp_path):
     yield tmp_path / "plan.toml"
+
+
+@pytest.fixture
+def mock_plan(tmp_path):
+    yield Path("tests") / "testdata" / "plan.toml"

@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Union
 
 import toml
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 
 
 class Process(BaseModel):
@@ -48,6 +48,10 @@ class Slice(BaseModel):
 
     paths: List[str] = []
 
+    @validator("paths", pre=True)
+    def _convert_paths(cls, value: Any) -> List[str]:
+        return [str(path) for path in value]
+
 
 class BOMEntry(BaseModel):
     """BOMEntry contains a bill of materials entry.
@@ -91,7 +95,8 @@ class LaunchMetadata(BaseModel):
 
     def to_path(self, path: Union[str, Path]) -> None:
         """Export LaunchMetadata to the TOML file at the given path."""
-        Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
+        if self:
+            Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
 
     @classmethod
     def from_path(cls, path: Union[str, Path]) -> "LaunchMetadata":
@@ -116,7 +121,8 @@ class BuildMetadata(BaseModel):
 
     def to_path(self, path: Union[str, Path]) -> None:
         """Export LaunchMetadata to the TOML file at the given path."""
-        Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
+        if self:
+            Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
 
     @classmethod
     def from_path(cls, path: Union[str, Path]) -> "BuildMetadata":
@@ -139,12 +145,16 @@ class Store(BaseModel):
 
     def to_path(self, path: Union[str, Path]) -> None:
         """Export Store to the TOML file at the given path."""
-        Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
+        if self:
+            Path(path).write_text(toml.dumps(self.dict(by_alias=True)))
 
     @classmethod
     def from_path(cls, path: Union[str, Path]) -> "Store":
         """Creates a Store from the TOML file at the given path."""
-        return cls.parse_obj(toml.loads(Path(path).read_text()))
+        path = Path(path)
+        if not path.exists():
+            return cls()
+        return cls.parse_obj(toml.loads(path.read_text()))
 
     def __bool__(self) -> bool:
         """Returns true if there is any content to be written to the output toml file."""
