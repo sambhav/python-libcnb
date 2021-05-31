@@ -1,0 +1,4985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cloud Native Buildpack API bindings for Python">
+      
+      
+      
+        <meta name="author" content="Sambhav Kothari">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>API Reference - libcnb</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="libcnb" class="md-header-nav__button md-logo" aria-label="libcnb">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            libcnb
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/samj1912/python-libcnb" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    samj1912/python-libcnb
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      API Reference
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="libcnb" class="md-nav__button md-logo" aria-label="libcnb">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    libcnb
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/samj1912/python-libcnb" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    samj1912/python-libcnb
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API Reference
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-entrypoint" class="md-nav__link">
+    Main Entrypoint
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Entrypoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._run.run" class="md-nav__link">
+    run()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-api" class="md-nav__link">
+    Detection API
+  </a>
+  
+    <nav class="md-nav" aria-label="Detection API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.DetectContext" class="md-nav__link">
+    DetectContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.DetectResult" class="md-nav__link">
+    DetectResult
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.detect" class="md-nav__link">
+    detect()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-api" class="md-nav__link">
+    Build API
+  </a>
+  
+    <nav class="md-nav" aria-label="Build API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildContext" class="md-nav__link">
+    BuildContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildResult" class="md-nav__link">
+    BuildResult
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildResult.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.build" class="md-nav__link">
+    build()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BOMEntry" class="md-nav__link">
+    BOMEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata" class="md-nav__link">
+    BuildMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata" class="md-nav__link">
+    LaunchMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="LaunchMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Process" class="md-nav__link">
+    Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store" class="md-nav__link">
+    Store
+  </a>
+  
+    <nav class="md-nav" aria-label="Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.UnmetPlanEntry" class="md-nav__link">
+    UnmetPlanEntry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    Layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment" class="md-nav__link">
+    Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.append" class="md-nav__link">
+    append()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.default" class="md-nav__link">
+    default()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.override" class="md-nav__link">
+    override()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.prepend" class="md-nav__link">
+    prepend()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD" class="md-nav__link">
+    ExecD
+  </a>
+  
+    <nav class="md-nav" aria-label="ExecD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.file_path" class="md-nav__link">
+    file_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.process_file_path" class="md-nav__link">
+    process_file_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer" class="md-nav__link">
+    Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.compare_metadata" class="md-nav__link">
+    compare_metadata()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.dump" class="md-nav__link">
+    dump()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.load" class="md-nav__link">
+    load()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.reset" class="md-nav__link">
+    reset()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layers" class="md-nav__link">
+    Layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layers.get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile" class="md-nav__link">
+    Profile
+  </a>
+  
+    <nav class="md-nav" aria-label="Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.add" class="md-nav__link">
+    add()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buildpack" class="md-nav__link">
+    Buildpack
+  </a>
+  
+    <nav class="md-nav" aria-label="Buildpack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.Buildpack" class="md-nav__link">
+    Buildpack
+  </a>
+  
+    <nav class="md-nav" aria-label="Buildpack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.Buildpack.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackGroupEntry" class="md-nav__link">
+    BuildpackGroupEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackInfo" class="md-nav__link">
+    BuildpackInfo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackOrder" class="md-nav__link">
+    BuildpackOrder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackStack" class="md-nav__link">
+    BuildpackStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-plans" class="md-nav__link">
+    Build Plans
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlan" class="md-nav__link">
+    BuildpackPlan
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildpackPlan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlan.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlanEntry" class="md-nav__link">
+    BuildpackPlanEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlan" class="md-nav__link">
+    BuildPlan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlanProvide" class="md-nav__link">
+    BuildPlanProvide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlanRequire" class="md-nav__link">
+    BuildPlanRequire
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    Platform
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._platform.Platform" class="md-nav__link">
+    Platform
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._platform.Platform.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-entrypoint" class="md-nav__link">
+    Main Entrypoint
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Entrypoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._run.run" class="md-nav__link">
+    run()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-api" class="md-nav__link">
+    Detection API
+  </a>
+  
+    <nav class="md-nav" aria-label="Detection API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.DetectContext" class="md-nav__link">
+    DetectContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.DetectResult" class="md-nav__link">
+    DetectResult
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._detect.detect" class="md-nav__link">
+    detect()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-api" class="md-nav__link">
+    Build API
+  </a>
+  
+    <nav class="md-nav" aria-label="Build API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildContext" class="md-nav__link">
+    BuildContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildResult" class="md-nav__link">
+    BuildResult
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.BuildResult.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._build.build" class="md-nav__link">
+    build()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BOMEntry" class="md-nav__link">
+    BOMEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata" class="md-nav__link">
+    BuildMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.BuildMetadata.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata" class="md-nav__link">
+    LaunchMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="LaunchMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.LaunchMetadata.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Process" class="md-nav__link">
+    Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store" class="md-nav__link">
+    Store
+  </a>
+  
+    <nav class="md-nav" aria-label="Store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.__bool__" class="md-nav__link">
+    __bool__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.Store.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._output.UnmetPlanEntry" class="md-nav__link">
+    UnmetPlanEntry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers" class="md-nav__link">
+    Layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment" class="md-nav__link">
+    Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.append" class="md-nav__link">
+    append()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.default" class="md-nav__link">
+    default()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.override" class="md-nav__link">
+    override()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.prepend" class="md-nav__link">
+    prepend()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Environment.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD" class="md-nav__link">
+    ExecD
+  </a>
+  
+    <nav class="md-nav" aria-label="ExecD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.file_path" class="md-nav__link">
+    file_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.ExecD.process_file_path" class="md-nav__link">
+    process_file_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer" class="md-nav__link">
+    Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.compare_metadata" class="md-nav__link">
+    compare_metadata()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.dump" class="md-nav__link">
+    dump()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.load" class="md-nav__link">
+    load()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layer.reset" class="md-nav__link">
+    reset()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layers" class="md-nav__link">
+    Layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Layers.get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile" class="md-nav__link">
+    Profile
+  </a>
+  
+    <nav class="md-nav" aria-label="Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.add" class="md-nav__link">
+    add()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._layers.Profile.to_path" class="md-nav__link">
+    to_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buildpack" class="md-nav__link">
+    Buildpack
+  </a>
+  
+    <nav class="md-nav" aria-label="Buildpack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.Buildpack" class="md-nav__link">
+    Buildpack
+  </a>
+  
+    <nav class="md-nav" aria-label="Buildpack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.Buildpack.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackGroupEntry" class="md-nav__link">
+    BuildpackGroupEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackInfo" class="md-nav__link">
+    BuildpackInfo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackOrder" class="md-nav__link">
+    BuildpackOrder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.BuildpackStack" class="md-nav__link">
+    BuildpackStack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._buildpack.License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-plans" class="md-nav__link">
+    Build Plans
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlan" class="md-nav__link">
+    BuildpackPlan
+  </a>
+  
+    <nav class="md-nav" aria-label="BuildpackPlan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlan.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildpackPlanEntry" class="md-nav__link">
+    BuildpackPlanEntry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlan" class="md-nav__link">
+    BuildPlan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlanProvide" class="md-nav__link">
+    BuildPlanProvide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._plan.BuildPlanRequire" class="md-nav__link">
+    BuildPlanRequire
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    Platform
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._platform.Platform" class="md-nav__link">
+    Platform
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libcnb._platform.Platform.from_path" class="md-nav__link">
+    from_path()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="api-reference">API Reference</h1>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>libcnb is a Python language binding of the Cloud Native Buildpacks API.</p>
+<p>It is a non-opinionated implementation adding language constructs and convenience methods for working with the API.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="main-entrypoint">Main Entrypoint</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>The primary entrypoint for the build and detect phases.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h4 id="libcnb._run.run" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">run</span><span class="p">(</span><span class="n">detector</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">libcnb</span><span class="o">.</span><span class="n">_detect</span><span class="o">.</span><span class="n">DetectContext</span><span class="p">],</span> <span class="n">libcnb</span><span class="o">.</span><span class="n">_detect</span><span class="o">.</span><span class="n">DetectResult</span><span class="p">],</span> <span class="n">builder</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">libcnb</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">BuildContext</span><span class="p">],</span> <span class="n">libcnb</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">BuildResult</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Combines the invocation of both build and detect into a single entry point.</p>
+<p>Calling run from an executable with a name matching "detect" or
+"builder" will result in the matching detector or builder being called respectively.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>detector</code></td>
+        <td><code>Callable[[libcnb._detect.DetectContext], libcnb._detect.DetectResult]</code></td>
+        <td><p>The definition of a callback that can be invoked when the
+detect function is executed. Buildpack authors should implement a detector
+that performs the specific detect phase operations for a buildpack. It should be
+a callable that takes in a DetectContext and returns a DetectResult.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>builder</code></td>
+        <td><code>Callable[[libcnb._build.BuildContext], libcnb._build.BuildResult]</code></td>
+        <td><p>The definition of a callback that can be invoked when the
+build function is executed. Buildpack authors should implement a builder
+that performs the specific detect phase operations for a buildpack. It should be
+a callable that takes in a BuildContext and returns a BuildResult.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="detection-api">Detection API</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions related to the detect phase.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._detect.DetectContext" class="doc doc-heading">
+        <code>DetectContext</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>DetectContext contains the inputs to detection.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>application_dir</code></td>
+        <td><code>Path</code></td>
+        <td><p>The location of the application source code as provided by the lifecycle.</p></td>
+      </tr>
+      <tr>
+        <td><code>buildpack</code></td>
+        <td><code>Buildpack</code></td>
+        <td><p>Metadata about the buildpack, from buildpack.toml.</p></td>
+      </tr>
+      <tr>
+        <td><code>platform</code></td>
+        <td><code>Platform</code></td>
+        <td><p>The contents of the platform.</p></td>
+      </tr>
+      <tr>
+        <td><code>stack_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The ID of the stack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._detect.DetectResult" class="doc doc-heading">
+        <code>DetectResult</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>DetectResult contains the results of detection.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>passed</code></td>
+        <td><code>bool</code></td>
+        <td><p>Indicates whether detection has passed.</p></td>
+      </tr>
+      <tr>
+        <td><code>plans</code></td>
+        <td><code>List[libcnb._plan.BuildPlan]</code></td>
+        <td><p>The build plans contributed by the buildpack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h4 id="libcnb._detect.detect" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">detect</span><span class="p">(</span><span class="n">detector</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">libcnb</span><span class="o">.</span><span class="n">_detect</span><span class="o">.</span><span class="n">DetectContext</span><span class="p">],</span> <span class="n">libcnb</span><span class="o">.</span><span class="n">_detect</span><span class="o">.</span><span class="n">DetectResult</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>An implementation of the detect phase according to the Cloud Native Buildpacks specification.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>detector</code></td>
+        <td><code>Callable[[libcnb._detect.DetectContext], libcnb._detect.DetectResult]</code></td>
+        <td><p>The definition of a callback that can be invoked when the
+detect function is executed. Buildpack authors should implement a detector
+that performs the specific detect phase operations for a buildpack. It should be
+a callable that takes in a DetectContext and returns a DetectResult.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="build-api">Build API</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions related to the build phase.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._build.BuildContext" class="doc doc-heading">
+        <code>BuildContext</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildContext contains the inputs to build.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>application_dir</code></td>
+        <td><code>Path</code></td>
+        <td><p>The location of the application source code as provided by the lifecycle.</p></td>
+      </tr>
+      <tr>
+        <td><code>buildpack</code></td>
+        <td><code>Buildpack</code></td>
+        <td><p>Metadata about the buildpack, from buildpack.toml.</p></td>
+      </tr>
+      <tr>
+        <td><code>layers</code></td>
+        <td><code>Layers</code></td>
+        <td><p>The layers available to the buildpack. Also exposes a
+convinience function <code>get</code> to create or load a layer in the
+appropriate layers directory.</p></td>
+      </tr>
+      <tr>
+        <td><code>store</code></td>
+        <td><code>Store</code></td>
+        <td><p>The metadata that is persisted even across cache cleaning.</p></td>
+      </tr>
+      <tr>
+        <td><code>plan</code></td>
+        <td><code>BuildpackPlan</code></td>
+        <td><p>The buildpack plan provided to the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>platform</code></td>
+        <td><code>Platform</code></td>
+        <td><p>The contents of the platform.</p></td>
+      </tr>
+      <tr>
+        <td><code>stack_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The ID of the stack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._build.BuildResult" class="doc doc-heading">
+        <code>BuildResult</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildResult contains the results of build phase.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>layers</code></td>
+        <td><code>List[libcnb._layers.Layer]</code></td>
+        <td><p>The collection of LayerCreators contributed by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>store</code></td>
+        <td><code>Store</code></td>
+        <td><p>The metadata that is persisted even across cache cleaning.</p></td>
+      </tr>
+      <tr>
+        <td><code>launch_metadata</code></td>
+        <td><code>LaunchMetadata</code></td>
+        <td><p>The metadata that will be exported to launch.toml.
+Allows configuring labels, processes, slices and BOM for the app image.</p></td>
+      </tr>
+      <tr>
+        <td><code>build_metadata</code></td>
+        <td><code>BuildMetadata</code></td>
+        <td><p>The metadata that will be exported to build.toml.
+Allows exporting the build BOM and unmet dependencies.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._build.BuildResult.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Exports the build result to the filesystem.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Union[str, pathlib.Path]</code></td>
+        <td><p>Path to the layers directory.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h4 id="libcnb._build.build" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">build</span><span class="p">(</span><span class="n">builder</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">libcnb</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">BuildContext</span><span class="p">],</span> <span class="n">libcnb</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">BuildResult</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>An implementation of the build phase according to the Cloud Native Buildpacks specification.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>builder</code></td>
+        <td><code>Callable[[libcnb._build.BuildContext], libcnb._build.BuildResult]</code></td>
+        <td><p>The definition of a callback that can be invoked when the
+build function is executed. Buildpack authors should implement a builder
+that performs the specific detect phase operations for a buildpack. It should be
+a callable that takes in a BuildContext and returns a BuildResult.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="outputs">Outputs</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions binding the various buildpack outputs during the build phase to a Python API.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.BOMEntry" class="doc doc-heading">
+        <code>BOMEntry</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BOMEntry contains a bill of materials entry.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the entry.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>The optional metadata of the entry.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.BuildMetadata" class="doc doc-heading">
+        <code>BuildMetadata</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildMetadata represents the contents of build.toml.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>bom</code></td>
+        <td><code>List[libcnb._output.BOMEntry]</code></td>
+        <td><p>The collection of entries for the bill of materials.</p></td>
+      </tr>
+      <tr>
+        <td><code>unmet</code></td>
+        <td><code>List[libcnb._output.UnmetPlanEntry]</code></td>
+        <td><p>The collection of buildpack plan entries that should be passed through to subsequent providers.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.BuildMetadata.__bool__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns true if there is any content to be written to the output toml file.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.BuildMetadata.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">BuildMetadata</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a BuildMetadata from the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.BuildMetadata.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Export LaunchMetadata to the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.Label" class="doc doc-heading">
+        <code>Label</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Label represents an image label.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>key</code></td>
+        <td><code>str</code></td>
+        <td><p>The key of the label.</p></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>The value of the label.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.LaunchMetadata" class="doc doc-heading">
+        <code>LaunchMetadata</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>LaunchMetadata represents the contents of launch.toml.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>labels</code></td>
+        <td><code>List[libcnb._output.Label]</code></td>
+        <td><p>The collection of image labels contributed by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>processes</code></td>
+        <td><code>List[libcnb._output.Process]</code></td>
+        <td><p>The collection of process types contributed by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>slices</code></td>
+        <td><code>List[libcnb._output.Slice]</code></td>
+        <td><p>The collection of process types contributed by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>bom</code></td>
+        <td><code>List[libcnb._output.BOMEntry]</code></td>
+        <td><p>The collection of entries for the bill of materials.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.LaunchMetadata.__bool__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns true if there is any content to be written to the output toml file.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.LaunchMetadata.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LaunchMetadata</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a LaunchMetadata from the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.LaunchMetadata.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Export LaunchMetadata to the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.Process" class="doc doc-heading">
+        <code>Process</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Process represents metadata about a type of command that can be run.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>type_</code></td>
+        <td><code>str</code></td>
+        <td><p>The type of the process.</p></td>
+      </tr>
+      <tr>
+        <td><code>command</code></td>
+        <td><code>str</code></td>
+        <td><p>The command of the process.</p></td>
+      </tr>
+      <tr>
+        <td><code>args</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>The arguments to the command.</p></td>
+      </tr>
+      <tr>
+        <td><code>direct</code></td>
+        <td><code>bool</code></td>
+        <td><p>If set to True the command is exec'd directly by the os (no profile.d scripts run).</p></td>
+      </tr>
+      <tr>
+        <td><code>default</code></td>
+        <td><code>bool</code></td>
+        <td><p>If set to True the process type being defined should be the default process type for the app image.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.Slice" class="doc doc-heading">
+        <code>Slice</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Slice represents metadata about a slice.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>paths</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>The contents of the slice.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.Store" class="doc doc-heading">
+        <code>Store</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Store represents the contents of store.toml.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>Represents the persistent metadata.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.Store.__bool__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns true if there is any content to be written to the output toml file.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.Store.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Store</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a Store from the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._output.Store.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Export Store to the TOML file at the given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._output.UnmetPlanEntry" class="doc doc-heading">
+        <code>UnmetPlanEntry</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>UnmetPlanEntry denotes an unmet buildpack plan entry.</p>
+<p>When a buildpack returns an UnmetPlanEntry in the BuildResult, any BuildpackPlanEntry
+with a matching name will be provided to subsequent providers.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the entry.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="layers">Layers</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions related to layer metadata manipulation.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._layers.Environment" class="doc doc-heading">
+        <code>Environment</code>
+
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Environment provides a key-value store for declaring environment variables.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.append" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a key-value pair to the environment as an appended value.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>Value of the environment variable to append.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>delim</code></td>
+        <td><code>str</code></td>
+        <td><p>The delimiter to use when appending the value.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.default" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a key-value pair to the environment as a default value.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>The default value of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">env_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Environment</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads the environment from the given path on disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.override" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">override</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a key-value pair to the environment as an overridden value.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>The overridden value of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.prepend" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">prepend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a key-value pair to the environment as a prepended value.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the environment variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>Value of the environment variable to prepend.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>delim</code></td>
+        <td><code>str</code></td>
+        <td><p>The delimiter to use when preprending the value.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Environment.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Exports the environment to the given path on disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._layers.ExecD" class="doc doc-heading">
+        <code>ExecD</code>
+
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Exec represents the exec.d layer location.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Path</code></td>
+        <td><p>The path to the exec.d directory.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.ExecD.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Initializer for exec.d.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.ExecD.file_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the fully qualified file path for a given name.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.ExecD.process_file_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">process_file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the fully qualified file path for a given process type and name.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._layers.Layer" class="doc doc-heading">
+        <code>Layer</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Layer provides a representation of a layer managed by a buildpack.</p>
+<p>This representation is based on the specification described in
+https://github.com/buildpacks/spec/blob/main/buildpack.md#layers.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Path</code></td>
+        <td><p>The absolute location of the layer on disk.</p></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The descriptive name of the layer.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata_file</code></td>
+        <td><code>Path</code></td>
+        <td><p>The aboluste location of the layer content metadata file.</p></td>
+      </tr>
+      <tr>
+        <td><code>build</code></td>
+        <td><code>bool</code></td>
+        <td><p>Indicates whether the layer is available to subsequent buildpacks
+    during their build phase according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#build-layers.</p></td>
+      </tr>
+      <tr>
+        <td><code>launch</code></td>
+        <td><code>bool</code></td>
+        <td><p>Indicates whether the layer is exported into the application image
+    and made available during the launch phase according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#launch-layers.</p></td>
+      </tr>
+      <tr>
+        <td><code>cache</code></td>
+        <td><code>bool</code></td>
+        <td><p>Cache indicates whether the layer is persisted and made available to
+    subsequent builds of the same application according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#launch-layers
+    and https://github.com/buildpacks/spec/blob/main/buildpack.md#build-layers.</p></td>
+      </tr>
+      <tr>
+        <td><code>shared_env</code></td>
+        <td><code>Environment</code></td>
+        <td><p>The set of environment variables attached to the layer and
+    made available during both the build and launch phases according to the
+    specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.</p></td>
+      </tr>
+      <tr>
+        <td><code>build_env</code></td>
+        <td><code>Environment</code></td>
+        <td><p>The set of environment variables attached to the layer and
+    made available during the build phase according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.</p></td>
+      </tr>
+      <tr>
+        <td><code>launch_env</code></td>
+        <td><code>Environment</code></td>
+        <td><p>The set of environment variables attached to the layer and
+    made available during the launch phase according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.</p></td>
+      </tr>
+      <tr>
+        <td><code>process_launch_envs</code></td>
+        <td><code>Dict[str, libcnb._layers.Environment]</code></td>
+        <td><p>A dict of environment variables attached to the layer and
+    made available to specified proccesses in the launch phase accoring to the
+    specification: https://github.com/buildpacks/spec/blob/main/buildpack.md#provided-by-the-buildpacks.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>An unspecified field allowing buildpacks to communicate extra
+    details about the layer. Examples of this type of metadata might include
+    details about what versions of software are included in the layer such
+    that subsequent builds can inspect that metadata and choose to reuse the
+    layer if suitable. The Metadata field ultimately fills the metadata field
+    of the Layer Content Metadata TOML file according to the specification:
+    https://github.com/buildpacks/spec/blob/main/buildpack.md#layer-content-metadata-toml.</p></td>
+      </tr>
+      <tr>
+        <td><code>profile</code></td>
+        <td><code>Profile</code></td>
+        <td><p>The collection of values to be written into profile.d.</p></td>
+      </tr>
+      <tr>
+        <td><code>process_profiles</code></td>
+        <td><code>Dict[str, libcnb._layers.Profile]</code></td>
+        <td><p>A dict of process types to the collection of values to be written
+into profile.d for specific process types.</p></td>
+      </tr>
+      <tr>
+        <td><code>exec_d</code></td>
+        <td><code>ExecD</code></td>
+        <td><p>The exec.d executables set in the layer.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Layer.compare_metadata" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compare_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Utility method to compare the layer metadata on disk with the expected metadata.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>expected_metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>A dict containing the expected metadata.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>exact</code></td>
+        <td><code>bool</code></td>
+        <td><p>If set to true, the actual metadata must exactly match the expected metadata.
+If set to false, only the keys in expected metadata and their values are checked
+against the actual metadata. Any extra keys in actual metadata are ignored.</p></td>
+        <td><code>False</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Layer.dump" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Exports the layer metadata to disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Layer.load" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Layer</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads the layer metadata from disk if it exists.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Layer.reset" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Layer</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Resets the layer metadata, cleans up the existing layer directory and creates an empty layer.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._layers.Layers" class="doc doc-heading">
+        <code>Layers</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Layers represents the set of layers managed by a buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Path</code></td>
+        <td><p>The absolute location of the set of layers managed by a buildpack on disk.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Layers.get" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">load_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Layer</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Create or load a layer with the given name along with its metadata.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the layer to create or load.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>load_all</code></td>
+        <td><code>bool</code></td>
+        <td><p>If set to True, also loads the environment and profile.d values
+associated with the layer.</p></td>
+        <td><code>False</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._layers.Profile" class="doc doc-heading">
+        <code>Profile</code>
+
+
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Profile is the collection of values to be written into profile.d.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Profile.add" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a profile.d script with a given name and script content.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the profile.d script.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code>str</code></td>
+        <td><p>The script content.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Profile.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">profile_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Profile</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads a collection of profile.d scripts from disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._layers.Profile.to_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Exports the current collection of profile.d scripts to disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="buildpack">Buildpack</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions related to the buildpack specific information and metadata.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.Buildpack" class="doc doc-heading">
+        <code>Buildpack</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Buildpack is the contents of the buildpack.toml file.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>api</code></td>
+        <td><code>str</code></td>
+        <td><p>The api version expected by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>info</code></td>
+        <td><code>BuildpackInfo</code></td>
+        <td><p>Information about the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Path</code></td>
+        <td><p>The absolute path to the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>stacks</code></td>
+        <td><code>List[libcnb._buildpack.BuildpackStack]</code></td>
+        <td><p>The collection of stacks supported by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>Arbitrary metadata attached to the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>order</code></td>
+        <td><code>List[libcnb._buildpack.BuildpackOrder]</code></td>
+        <td><p>Collection of buildpack order definitions in the buildpack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._buildpack.Buildpack.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Buildpack</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads the buildpack information given a path on disk.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.BuildpackGroupEntry" class="doc doc-heading">
+        <code>BuildpackGroupEntry</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackGroupEntry is a buildpack within in a buildpack order group.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>version</code></td>
+        <td><code>str</code></td>
+        <td><p>The version of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>optional</code></td>
+        <td><code>bool</code></td>
+        <td><p>Whether the buildpack is optional within the buildpack group.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.BuildpackInfo" class="doc doc-heading">
+        <code>BuildpackInfo</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackInfo is information about the buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>version</code></td>
+        <td><code>str</code></td>
+        <td><p>The version of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>homepage</code></td>
+        <td><code>str</code></td>
+        <td><p>The homepage of the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>clear_env</code></td>
+        <td><code>bool</code></td>
+        <td><p>Clears user-defined environment variables when true
+on executions of bin/detect and bin/build.</p></td>
+      </tr>
+      <tr>
+        <td><code>description</code></td>
+        <td><code>str</code></td>
+        <td><p>The string describing the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>keywords</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>A list of words that are associated with the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>licenses</code></td>
+        <td><code>List[libcnb._buildpack.License]</code></td>
+        <td><p>A list of buildpack licenses.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.BuildpackOrder" class="doc doc-heading">
+        <code>BuildpackOrder</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackOrder is an order definition in the buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>group</code></td>
+        <td><code>List[libcnb._buildpack.BuildpackGroupEntry]</code></td>
+        <td><p>The collection of groups within the order.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.BuildpackStack" class="doc doc-heading">
+        <code>BuildpackStack</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackStack is a stack supported by the buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td><code>str</code></td>
+        <td><p>The id of the stack.</p></td>
+      </tr>
+      <tr>
+        <td><code>mixins</code></td>
+        <td><code>List[str]</code></td>
+        <td><p>The collection of mixins associated with the stack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._buildpack.License" class="doc doc-heading">
+        <code>License</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>License contains information about a Software License governing the use or redistribution of a buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>type_</code></td>
+        <td><code>str</code></td>
+        <td><p>The identifier for the license.
+It may use the SPDX 2.1 license expression, but is not limited
+to identifiers in the SPDX Licenses List.</p></td>
+      </tr>
+      <tr>
+        <td><code>uri</code></td>
+        <td><code>str</code></td>
+        <td><p>A string that may be specified in lieu of or in addition to type to point to the license
+if this buildpack is using a nonstandard license.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="build-plans">Build Plans</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions binding the various plan I/O during the detect/build phase to a Python API.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._plan.BuildpackPlan" class="doc doc-heading">
+        <code>BuildpackPlan</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackPlan represents a buildpack plan input during the build process.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>entries</code></td>
+        <td><code>List[libcnb._plan.BuildpackPlanEntry]</code></td>
+        <td><p>All the buildpack plan entries.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._plan.BuildpackPlan.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">BuildpackPlan</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads a buildpack plan from the path to a TOML file.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._plan.BuildpackPlanEntry" class="doc doc-heading">
+        <code>BuildpackPlanEntry</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildpackPlanEntry represents an entry in the buildpack plan.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the entry.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>The optional metadata of the entry.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._plan.BuildPlan" class="doc doc-heading">
+        <code>BuildPlan</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildPlan represents the provisions and requirements of a buildpack during detection.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>provides</code></td>
+        <td><code>List[libcnb._plan.BuildPlanProvide]</code></td>
+        <td><p>The dependencies provided by the buildpack.</p></td>
+      </tr>
+      <tr>
+        <td><code>requires</code></td>
+        <td><code>List[libcnb._plan.BuildPlanRequire]</code></td>
+        <td><p>The dependencies required by the buildpack.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._plan.BuildPlanProvide" class="doc doc-heading">
+        <code>BuildPlanProvide</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildPlanProvide represents a dependency provided by a buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the dependency.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._plan.BuildPlanRequire" class="doc doc-heading">
+        <code>BuildPlanRequire</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>BuildPlanRequire represents a dependency required by a buildpack.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the dependency.</p></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Dict[str, Any]</code></td>
+        <td><p>The optional metadata for the dependency.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<h2 id="platform">Platform</h2>
+
+
+  <div class="doc doc-object doc-module">
+
+
+    <div class="doc doc-contents first">
+
+      <p>Classes and functions binding the Platform metadata.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h4 id="libcnb._platform.Platform" class="doc doc-heading">
+        <code>Platform</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+</h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Platform is the contents of the platform directory.</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>Path</code></td>
+        <td><p>The path to the platform directory.</p></td>
+      </tr>
+      <tr>
+        <td><code>env</code></td>
+        <td><code>Mapping[str, str]</code></td>
+        <td><p>The environment exposed by the platform.</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h5 id="libcnb._platform.Platform.from_path" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Platform</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h5>
+
+    <div class="doc doc-contents ">
+
+      <p>Construct a Platform object from a given path.</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Sambhav Kothari
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/samj1912" target="_blank" rel="noopener" title="samj1912 on GitHub" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.instant', 'navigation.tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
