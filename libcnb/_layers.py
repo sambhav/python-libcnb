@@ -246,7 +246,8 @@ class Layer(BaseModel):
 
     def reset(self) -> "Layer":
         """Resets the layer metadata, cleans up the existing layer directory and creates an empty layer."""
-        self.metadata_file.unlink()
+        if self.metadata_file.exists():
+            self.metadata_file.unlink()
         shutil.rmtree(self.path)
         self.path.mkdir(parents=True, exist_ok=True)
         return self.load(load_all=True)
